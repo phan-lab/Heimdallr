@@ -1,0 +1,6 @@
+3
+config-station0.txt	station
+config-train1.txt	train
+config-train1.txt	train
+0	1	500	99
+0	2	500	99

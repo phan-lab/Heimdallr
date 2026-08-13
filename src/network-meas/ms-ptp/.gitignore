@@ -1,0 +1,6 @@
+*.o
+follower
+grand-master
+keygen/keys
+keygen/keygen
+logs*/

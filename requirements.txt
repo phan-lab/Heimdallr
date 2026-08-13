@@ -1,0 +1,12 @@
+# HEIMDALLR artifact reproduction.
+#
+# numpy/pandas/matplotlib are required for every target.
+# numba is only used by the TGS Monte-Carlo simulator under --mode rerun; the
+# simulator falls back to pure Python without it, roughly 100x slower.
+#
+# Version floors, not pins - the versions this was built against are
+# numpy 1.26.4, pandas 2.2.1, matplotlib 3.8.4, numba 0.61.2.
+numpy>=1.21
+pandas>=1.3
+matplotlib>=3.5
+numba>=0.55

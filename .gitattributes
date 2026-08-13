@@ -1,0 +1,23 @@
+# Normalise line endings.  Much of the original tree came off a Windows share
+# (it still had *:Zone.Identifier marker files), so without this a clone on
+# Linux and a clone on Windows produce different checksums for the same file.
+* text=auto eol=lf
+
+# Shell scripts must keep LF or they will not run.
+*.sh text eol=lf
+
+# Data files: text, but never touched by merge drivers.
+*.csv text eol=lf
+*.txt text eol=lf
+
+# Figures and other binaries.
+*.pdf binary
+*.png binary
+
+# src/original/ is an unmodified copy of the authors' code, kept so that
+# `diff` shows exactly what the reproduction changed.  Mark it vendored so it
+# does not skew GitHub's language statistics or clutter diffs by default.
+src/original/** linguist-vendored
+
+# Notebooks are kept for reference only; do not try to diff them line by line.
+*.ipynb -diff linguist-documentation

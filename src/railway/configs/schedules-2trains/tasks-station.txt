@@ -1,0 +1,5 @@
+station-mode0.txt
+106	recv_location_from_train	5000	2000	0	0	2	-1	1	1
+107	compute_ma	5000	5000	300	600	-1	4	1	-1
+206	recv_location_from_train	5000	2000	0	0	2	-1	2	1
+207	compute_ma	5000	5000	300	600	-1	4	2	-1
