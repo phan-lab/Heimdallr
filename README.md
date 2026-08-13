@@ -52,7 +52,7 @@
 
 ```bash
 cd ~
-git clone git@github.com:phan-lab/Heimdallr.git
+git clone https://github.com/phan-lab/Heimdallr
 cd Heimdallr
 ./setup.sh            # reports what is present and what is missing;
                       # should return all OKs with the docker
