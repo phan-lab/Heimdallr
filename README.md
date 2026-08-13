@@ -21,26 +21,29 @@
 
 ### Machine requirements
 
-| | recommended | notes |
+| | requirements | notes |
 |---|---|---|
-| **OS** | Linux or WSL2 | the benchmarks use `taskset`, `pkill` and UNIX sockets |
+| **OS** | Linux | We provide a docker image with the required environment |
 | **CPU cores** | ≥ 26 (the more the better) | Figure 9's largest configuration runs 25 replicas + 1 client; TGS simulation is parallelized and benefits from more cores. |
-| **RAM** | 4 GB | ns-3's LTE model is the heaviest single process |
 | **Time** | — |  From several hours to days depending on #cores|
 
 
 ### Setup docker 
   ```bash
+  # Install docker if needed (assuming Ubuntu)
+  sudo apt update 
+  sudo apt install docker.io -y
+
   # Pull
-  docker pull fyc1007261/heimdallr-artifact:v1.0 # sudo might be required
+  sudo docker pull fyc1007261/heimdallr-artifact:v1.0 
   
   # Run
-  docker run --name heimdallr-artifact-docker -it fyc1007261/heimdallr-artifact:v1.0 # only need to run this once
-  docker start heimdallr-artifact-docker # run after reboot
-  docker exec -it heimdallr-artifact-docker bash # attach to the terminal inside 
+  sudo docker run --name heimdallr-artifact-docker -it fyc1007261/heimdallr-artifact:v1.0 # only need to run this once
+  sudo docker start heimdallr-artifact-docker # run after reboot
+  sudo docker exec -it heimdallr-artifact-docker bash # attach to the terminal inside 
 
   # Delete after use
-  docker rm heimdallr-artifact-docker
+  sudo docker rm heimdallr-artifact-docker
   ```
 
 
@@ -48,6 +51,9 @@
 ### Software and packages
 
 ```bash
+cd ~
+git clone git@github.com:phan-lab/Heimdallr.git
+cd Heimdallr
 ./setup.sh            # reports what is present and what is missing;
                       # should return all OKs with the docker
 ```
@@ -63,6 +69,7 @@
 This generates every dataset from source and plots the figures and tables.
 
 Important remarks:
+
 - **Figure 9 and Table 4 are hardware-dependent.** They measure CPU time. The
   paper used 2.4 GHz EPYC cores at one process per core. However, the trend should look the same.
 - **Noises in TGS-related evaluations.** The numbers may not exactly match those in tha papers, due to the probabilistic nature of network delays and drops.
